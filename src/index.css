@@ -1,0 +1,393 @@
+@import "tailwindcss";
+
+/* ─── Custom Design Tokens ─────────────────────────────── */
+:root {
+  --navy:        #0a1628;
+  --navy-mid:    #0f2040;
+  --navy-light:  #1a3a5c;
+  --steel:       #2a4a6b;
+  --accent:      #e8a020;
+  --accent-light:#f5c060;
+  --sky:         #4a9eda;
+  --text-muted:  #8fa8c8;
+  --white:       #ffffff;
+  --off-white:   #f0f4f8;
+  --card-bg:     rgba(15, 32, 64, 0.85);
+  --glass-border:rgba(74, 158, 218, 0.25);
+  --transition:  250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Base ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ─── Blueprint Grid Overlay ─────────────────────── */
+.blueprint-bg {
+  background-color: var(--navy);
+  background-image:
+    linear-gradient(rgba(74,158,218,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,158,218,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.blueprint-bg-light {
+  background-color: var(--navy-mid);
+  background-image:
+    linear-gradient(rgba(74,158,218,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,158,218,0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ─── Glassmorphism Card ─────────────────────────── */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+/* ─── Scrollbar Styling ──────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--steel); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--sky); }
+
+/* ─── Section Title ──────────────────────────────── */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  background: linear-gradient(135deg, var(--white) 0%, var(--sky) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ─── Accent Bar ─────────────────────────────────── */
+.accent-bar {
+  width: 56px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--sky));
+  border-radius: 2px;
+}
+
+/* ─── Button Styles ──────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, var(--accent) 0%, #d4880a 100%);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(232,160,32,0.4);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: transparent;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 2px solid rgba(74,158,218,0.5);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+.btn-outline:hover {
+  border-color: var(--sky);
+  background: rgba(74,158,218,0.12);
+  transform: translateY(-2px);
+}
+
+/* ─── Fade-in Scroll Animation ───────────────────── */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ─── Geometric corner decoration ────────────────── */
+.corner-accent::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 48px; height: 48px;
+  border-top: 3px solid var(--accent);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px 0 0 0;
+}
+.corner-accent::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 48px; height: 48px;
+  border-bottom: 3px solid var(--sky);
+  border-right: 3px solid var(--sky);
+  border-radius: 0 0 4px 0;
+}
+
+/* ─── Stat Counter Card ──────────────────────────── */
+.stat-card {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: rgba(74,158,218,0.07);
+  border: 1px solid rgba(74,158,218,0.18);
+  transition: all var(--transition);
+}
+.stat-card:hover {
+  background: rgba(74,158,218,0.14);
+  border-color: rgba(74,158,218,0.35);
+  transform: translateY(-4px);
+}
+
+/* ─── Skills badge ───────────────────────────────── */
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  background: rgba(74,158,218,0.08);
+  border: 1px solid rgba(74,158,218,0.22);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--sky);
+  transition: all var(--transition);
+}
+.skill-badge:hover {
+  background: rgba(74,158,218,0.18);
+  border-color: var(--sky);
+  color: var(--white);
+}
+
+/* ─── Service Card ───────────────────────────────── */
+.service-card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition);
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--sky));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(74,158,218,0.45);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.35);
+}
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-icon {
+  width: 60px; height: 60px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(232,160,32,0.15), rgba(74,158,218,0.15));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: 1.25rem;
+  transition: all var(--transition);
+}
+.service-card:hover .service-icon {
+  background: linear-gradient(135deg, rgba(232,160,32,0.3), rgba(74,158,218,0.3));
+  transform: scale(1.08);
+}
+
+/* ─── Project Card ───────────────────────────────── */
+.project-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition);
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 56px rgba(0,0,0,0.4);
+  border-color: rgba(74,158,218,0.5);
+}
+.project-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+}
+.project-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+.project-card:hover .project-img-wrap img {
+  transform: scale(1.08);
+}
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,22,40,0.9), transparent);
+  transition: opacity var(--transition);
+}
+
+/* ─── Timeline ───────────────────────────────────── */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--sky), var(--navy-light));
+  transform: translateX(-50%);
+}
+.timeline-dot {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--navy);
+  box-shadow: 0 0 0 4px rgba(232,160,32,0.25);
+  flex-shrink: 0;
+}
+
+/* ─── Contact Form ───────────────────────────────── */
+.form-input {
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(74,158,218,0.25);
+  border-radius: 10px;
+  color: var(--white);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all var(--transition);
+  outline: none;
+}
+.form-input::placeholder { color: var(--text-muted); }
+.form-input:focus {
+  border-color: var(--sky);
+  background: rgba(74,158,218,0.06);
+  box-shadow: 0 0 0 3px rgba(74,158,218,0.12);
+}
+
+/* ─── Navbar ─────────────────────────────────────── */
+.nav-link {
+  position: relative;
+  color: rgba(255,255,255,0.75);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color var(--transition);
+  cursor: pointer;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--accent);
+  transition: width var(--transition);
+}
+.nav-link:hover { color: var(--white); }
+.nav-link:hover::after { width: 100%; }
+.nav-link.active { color: var(--accent); }
+.nav-link.active::after { width: 100%; background: var(--accent); }
+
+/* ─── WhatsApp Button ─────────────────────────────── */
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all var(--transition);
+}
+.whatsapp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(37,211,102,0.35);
+}
+
+/* ─── Progress Bar ───────────────────────────────── */
+.progress-bar-outer {
+  height: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress-bar-inner {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--sky));
+  transition: width 1.2s ease;
+}
