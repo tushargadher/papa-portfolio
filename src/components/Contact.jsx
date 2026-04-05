@@ -54,7 +54,7 @@ export default function Contact() {
               <Phone size={28} color="#e8a020" className="mb-4" />
               <h3 className="text-white font-bold text-xl mb-2">Call Me Directly</h3>
               <p className="mb-5" style={{ color: '#8fa8c8' }}>
-                Available Mon–Sat, 9am–7pm PKT
+                Available for new projects
               </p>
               <a
                 href="tel:+918469446362"
@@ -120,7 +120,7 @@ export default function Contact() {
                     color: '#25D366',
                   }}
                 >
-                  ✅ Message sent! I'll get back to you within 24 hours.
+                  ✅ Message sent! we will get back to you within 24 hours.
                 </div>
               )}
 

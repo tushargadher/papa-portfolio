@@ -86,7 +86,7 @@ export default function Hero() {
                   backgroundClip: 'text',
                 }}
               >
-                Structures
+                Planning
               </span>{' '}
               That Stand{' '}
               <span style={{ color: '#4a9eda' }}>The Test of Time</span>

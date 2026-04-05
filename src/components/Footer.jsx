@@ -34,7 +34,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed mb-6" style={{ color: '#8fa8c8', maxWidth: '400px' }}>
-              30+ years of delivering precision-built structures across India.
+              30+ years of delivering precision-built planning across India.
               From blueprint to build — your vision, expertly engineered.
             </p>
             {/* Contact quick-links */}

@@ -21,7 +21,7 @@ const timeline = [
     period: '2000 – 2008',
     title: 'Senior Structural Engineer',
     company: 'Habib Rafiq Pvt. Ltd. (HRL)',
-    desc: 'Oversaw structural design review for 50+ high-rise and commercial buildings. Introduced CAD-based workflows that reduced design cycles by 35%.',
+    desc: 'Oversaw structural design review for 50+ low-rise and commercial buildings. Introduced CAD-based workflows that reduced design cycles by 35%.',
     icon: '📐',
     side: 'left',
   },

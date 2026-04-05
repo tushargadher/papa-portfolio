@@ -25,12 +25,12 @@ const services = [
     desc: 'On-site quality control, contractor coordination, and progress monitoring to ensure your project is delivered on time and on budget.',
     tags: ['QC/QA', 'Coordination', 'Reporting'],
   },
-  {
-    icon: '🔧',
-    title: 'Renovation & Remodeling',
-    desc: 'Structural assessment and smart renovation plans to modernize existing buildings while maintaining structural integrity.',
-    tags: ['Assessment', 'Retrofit', 'Modernization'],
-  },
+  // {
+  //   icon: '🔧',
+  //   title: 'Renovation & Remodeling',
+  //   desc: 'Structural assessment and smart renovation plans to modernize existing buildings while maintaining structural integrity.',
+  //   tags: ['Assessment', 'Retrofit', 'Modernization'],
+  // },
   {
     icon: '🤝',
     title: 'Engineering Consulting',

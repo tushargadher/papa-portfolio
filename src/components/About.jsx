@@ -13,7 +13,7 @@ const highlights = [
   { icon: '🏆', title: '30+ Years', sub: 'Professional Experience' },
   { icon: '🏢', title: '500+',      sub: 'Projects Completed' },
   { icon: '🤝', title: '300+',      sub: 'Happy Clients' },
-  { icon: '🌆', title: '50+',       sub: 'Cities Served' },
+  //{ icon: '🌆', title: '50+',       sub: 'Cities Served' },
 ];
 
 function SkillBar({ skill, visible }) {
@@ -84,10 +84,10 @@ export default function About() {
             </p>
             <p className="mb-6 leading-relaxed" style={{ color: '#8fa8c8' }}>
               My journey began with a Bachelor's in Civil Engineering and has spanned landmark
-              infrastructure, high-rise residential complexes, industrial facilities, and
+              infrastructure, low-rise residential complexes, industrial facilities, and
               large-scale commercial developments. I combine time-proven engineering principles
               with modern technologies like BIM and 3D modelling to deliver precision-built
-              structures.
+              planning.
             </p>
 
             {/* Highlights row */}
